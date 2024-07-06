@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, Http404
 # from .models import Question
 # from django.template import loader
@@ -19,10 +19,14 @@ def results(request, question_id):
 
 def detail(request, question_id):
     # 1. we need models.py to make this code work
-    # try:
-    #     question = Question.obejcts.get(pk=question_id)
-    # except Question.DoesNotExist:
-    #     raise Http404('Question Dosnt Exist')
+        # try:
+        #     question = Question.obejcts.get(pk=question_id)
+        # except Question.DoesNotExist:
+        #     raise Http404('Question Dosnt Exist')
+
+    # 2. Better way to use 404
+        # question = get_object_or_404(Question, pk=question_id)
+
     return render(request, 'polls/detail.html', {'question': question_id})
 
 def vote(request, question_id):
