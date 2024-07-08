@@ -21,5 +21,5 @@ from myapp import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('bitcamp/', views.index),
-    path('poll/', include('mypoll.urls'))
+    path('polls/', include('mypoll.urls'))
 ]
